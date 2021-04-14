@@ -19,4 +19,4 @@ def post_detail(request, year, month, day, post):
 
 
 def index(request):
-    return render(request, 'blog/post/list.html')
+    return render(request, 'blog/index.html')

@@ -21,6 +21,7 @@ from blog.views import index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.PostListView.as_view(), name='post_list'),
+    # path('', views.PostListView.as_view(), name='post_list'),
     path('blog/', include('blog.urls', namespace='blog')),
+    path('', views.index, name='index')
 ]
