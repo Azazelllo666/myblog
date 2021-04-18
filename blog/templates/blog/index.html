@@ -1,4 +1,4 @@
-{% load static %}
+{% load staticfiles %}
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -134,7 +134,8 @@
                                         <h2 class="colorlib-heading">Кто Я?</h2>
                                         <p><strong>Я Леонидов Пётр,</strong> закончил Томский политехнический
                                             университет (бакалавр и магистратура) по направлению "Электроэнергетика и
-                                            электротехника" и работал по профессии инженером-энергетиком 5 лет в АО "Связьтрансфть".</p>
+                                            электротехника" и работал по профессии инженером-энергетиком 5 лет в АО
+                                            "Связьтрансфть".</p>
                                         <p>В период
                                             карантина решил потратить свободное время на самообразование. Всегда была
                                             интересна сфера IT, поэтому
@@ -201,7 +202,7 @@
                             <span class="colorlib-counter-label">Проекта на Django</span>
                         </div>
                         <div class="col-md-3 text-center animate-box">
-                            <span class="colorlib-counter" >∞</span>
+                            <span class="colorlib-counter">∞</span>
                             <span class="colorlib-counter-label">Желание стать программистом</span>
                         </div>
                     </div>
@@ -392,52 +393,20 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-4 col-sm-6 animate-box" data-animate-effect="fadeInLeft">
-                            <div class="blog-entry">
-                                <a href="blog.html" class="blog-img"><img src="{% static 'images/blog-1.jpg' %}"
-                                                                          class="img-responsive"
-                                                                          alt="HTML5 Bootstrap Template by colorlib.com"></a>
-                                <div class="desc">
-                                    <span><small>Декабрь 27, 2020 </small> | <small> Django </small> | </span>
-                                    <h3><a href="blog.html">MyBlog</a></h3>
-                                    <p>Сделал простой личный блог, для представления своего резюме.</p>
+                        {% for project in projects %}
+                            <div class="col-md-4 col-sm-6 animate-box" data-animate-effect="fadeInLeft">
+                                <div class="blog-entry">
+                                    <a href="{{ project.link }}" class="blog-img"><img class="img-responsive"
+                                                                                       src="media/{{ project.poster }}"
+                                                                                       alt="projects_poster"></a>
+                                    <div class="desc">
+                                        <span><small>{{ project.publish }} </small> | <small> Django </small></span>
+                                        <h3><a href="#">{{ project.title }}</a></h3>
+                                        <p>{{ project.body }}</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6 animate-box" data-animate-effect="fadeInRight">
-                            <div class="blog-entry">
-                                <a href="blog.html" class="blog-img"><img src="{% static 'images/blog-2.jpg' %}"
-                                                                          class="img-responsive"
-                                                                          alt="HTML5 Bootstrap Template by colorlib.com"></a>
-                                <div class="desc">
-                                    <span><small>April 14, 2018 </small> | <small> Web Design </small> | <small> <i
-                                            class="icon-bubble3"></i> 4</small></span>
-                                    <h3><a href="blog.html">GeekShop</a></h3>
-                                    <p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a
-                                        large language ocean.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-sm-6 animate-box" data-animate-effect="fadeInLeft">
-                            <div class="blog-entry">
-                                <a href="blog.html" class="blog-img"><img src="{% static 'images/blog-3.jpg' %}"
-                                                                          class="img-responsive"
-                                                                          alt="HTML5 Bootstrap Template by colorlib.com"></a>
-                                <div class="desc">
-                                    <span><small>April 14, 2018 </small> | <small> Inspiration </small> | <small> <i
-                                            class="icon-bubble3"></i> 4</small></span>
-                                    <h3><a href="blog.html">My_Netflix</a></h3>
-                                    <p>Separated they live in Bookmarksgrove right at the coast of the Semantics, a
-                                        large language ocean.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12 animate-box">
-                            <p><a href="#" class="btn btn-primary btn-lg btn-load-more">Load more <i
-                                    class="icon-reload"></i></a></p>
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
             </section>

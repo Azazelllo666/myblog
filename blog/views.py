@@ -20,3 +20,9 @@ def post_detail(request, year, month, day, post):
 
 def index(request):
     return render(request, 'blog/index.html')
+
+
+def projects(request):
+    projects = Post.objects.all().order_by('id')
+    context = {'projects': projects}
+    return render(request, 'blog/index.html', context)
